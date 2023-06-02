@@ -44,5 +44,16 @@ namespace JustLikeACollection
                 variableList[i] = item;
         }
 
+         public void Add(T item)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (EqualityComparer<T>.Default.Equals(variableList[i] , (default(T))) )
+                {
+                    SetItem(i, item);
+                    break;
+                }
+            }
+        }
     }
 }
