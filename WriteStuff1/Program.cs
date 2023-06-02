@@ -12,20 +12,17 @@ namespace WriteStuff1
         {
             Queue<string> writeLines = new Queue<string>();
 
-            using (StreamWriter sw = File.CreateText(args[0]))
+            string input = Console.ReadLine();
+            while (input != "")
             {
-                string input = Console.ReadLine();
-                while (input != "")
-                {
-                    writeLines.Enqueue(input);
-                    input = Console.ReadLine();
-                }
+                writeLines.Enqueue(input);
+                input = Console.ReadLine();
+            }
 
                 foreach (string s in writeLines)
-                {
-                    sw.WriteLine(s);
+            {
+                File.WriteAllLines(args[0], writeLines);
                 }
             }
         }
     }
-}
